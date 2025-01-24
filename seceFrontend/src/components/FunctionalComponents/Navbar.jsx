@@ -27,8 +27,10 @@ const Navbar=()=>{
                         <li><Link to='/use-ref 'className="link">Useref</Link></li>
                         <li><Link to='/usememo 'className="link">UseMemo</Link></li>
                         <li><Link to='/usecall 'className="link">UseCallback</Link></li>
+                        <li><Link to='/react-lifecycle-methods 'className="link">ReactLifecycleMethods</Link></li>
                     </ul>)}
                 </div>
+
                 <li><Link to='/useapi 'className="link">UseEffect API</Link></li>
                 <li><Link to='/signup 'className="link">SignUp</Link></li>
                 <li><Link to='/login 'className="link">Login</Link></li>
