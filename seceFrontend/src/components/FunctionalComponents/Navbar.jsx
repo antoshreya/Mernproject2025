@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+//import'./css/Navbar.css';
 import "../../css/Navbar.css";
+
 const Navbar=()=>{
     var [memodropdown,showmemoDropdown]=useState(false)
     const togglemDropdown=()=>{
@@ -46,7 +48,7 @@ const Navbar=()=>{
                         <li><Link to='/useref' className='link'>Useref</Link></li>
                         <li><Link to='/usememo' className='link'>UseMemo</Link></li>
                         <li><Link to='/usecallback' className='link'>UseCallback</Link></li>
-                        <li><Link to='/Usecontext' className='link'>UseContext</Link></li>
+                        <li><Link to='/usecontext' className='link'>UseContext</Link></li>
                     </ul>)}
                 </div>
                 <div  onMouseEnter={togglemDropdown} style={{ position: 'relative', display: 'inline-block' }}>
@@ -66,11 +68,16 @@ const Navbar=()=>{
                                 borderRadius: '5px',
                                 zIndex: 1,
                             }}>
-                         <li><Link to='/Memo' className='link'>Memo</Link></li>       
+                         <li><Link to='/memo' className='link'>Memo</Link></li> 
+                         <li><Link to='/lazy' className='link'>Lazy,Suspense</Link></li>       
                        
                     </ul>)}
                     </div>
-                
+                    <li>
+            <Link to="/hoc" className="link">
+              HoC
+            </Link>
+          </li>
 
             </ol>
         </nav>
