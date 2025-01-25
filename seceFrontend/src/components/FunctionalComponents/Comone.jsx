@@ -1,4 +1,5 @@
 import React from 'react'
+
 const Comone = () => {
   return (
     <div>

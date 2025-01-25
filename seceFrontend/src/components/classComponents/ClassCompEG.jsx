@@ -1,4 +1,5 @@
 import React from 'react';
+import Comone from '../FunctionalComponents/Comone';
 
 class ClassCompEG extends React.Component {
     
@@ -6,6 +7,7 @@ class ClassCompEG extends React.Component {
         return(
           <div>
              <h3>This is the class Component Example.</h3>
+             <Comone/>
           </div>
         )
     }
