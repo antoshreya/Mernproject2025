@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-//import'./css/Navbar.css';
-import "../../css/Navbar.css";
-
+import'../../css/Navbar.css';
 const Navbar=()=>{
     var [memodropdown,showmemoDropdown]=useState(false)
     const togglemDropdown=()=>{
@@ -12,18 +10,21 @@ const Navbar=()=>{
         showhookDropdown(hookdropdown=>!hookdropdown)
 
     }
-        
-    
+    const handleLogout = () => {
+        setIsLoggedIn(false); 
+      };
+
     return(
         <header>
         <nav>
             <ol>
-                <li><Link to='/' className="link">Home</Link></li>
+                <li><Link to='/home' className="link">Home</Link></li>
                 <li><Link to='/about' className="link">About</Link></li>
                 <li><Link to='/gallery' className="link">Gallery</Link></li>
                 <li><Link to='/contact' className="link">Contact</Link></li>
+                <li><Link to='/hoc' className="link">Higher Order Components</Link></li>
                 <div onMouseEnter={togglehDropdown} onMouseLeave={togglehDropdown} style={{ position: 'relative', display: 'inline-block' }}>
-                        <span styling={{color:'black'}}>Hooks</span>
+                        <span style={{color:'black'}}>Hooks</span>
                         {hookdropdown && (
                             <ul style={{
                                 position: 'absolute',
@@ -52,7 +53,7 @@ const Navbar=()=>{
                     </ul>)}
                 </div>
                 <div  onMouseEnter={togglemDropdown} style={{ position: 'relative', display: 'inline-block' }}>
-                        <span>Memoization</span>
+                        <span style={{color:'black'}}>Memoization</span>
                         {memodropdown && (
                             <ul style={{
                                 position: 'absolute',
@@ -69,16 +70,12 @@ const Navbar=()=>{
                                 zIndex: 1,
                             }}>
                          <li><Link to='/memo' className='link'>Memo</Link></li> 
-                         <li><Link to='/lazy' className='link'>Lazy,Suspense</Link></li>       
+                         <li><Link to='/lazy' className='link'>LazySuspense</Link></li>       
                        
                     </ul>)}
                     </div>
-                    <li>
-            <Link to="/hoc" className="link">
-              HoC
-            </Link>
-          </li>
-
+                
+                    <li><Link to="/" className="link" onClick={handleLogout}>Logout</Link></li>
             </ol>
         </nav>
         </header>

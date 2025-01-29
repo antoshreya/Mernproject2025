@@ -1,21 +1,81 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import'../../css/Signup.css';
-const Signup = () => {
+import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios';
+const Signup=()=>{
+  var [firstname, setFirstname] = useState('');
+  var [lastname, setLastname] = useState('');
+  var [username, setUsername] = useState('');
+  var [email, setEmail] = useState('');
+  var [password, setPassword] = useState('');
+  var navigate= useNavigate();
+
+  const handleSignup=async(event)=>{
+    event.preventDefault()
+    
+    try{
+      console.log("Event Trigger");
+      const req = await axios.post("http://localhost:3001/signup",{
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      email: email,
+      password: password,
+    })
+   console.log(req);
+   alert(req.data)
+   navigate('/login');
+
+  }catch(err){
+      console.log(err)
+  }
+}
+
   return (
-    <div className="form-container">
-      <h2>Signup</h2>
-      <form>
-        <label htmlFor="signup-email">Email:</label>
-        <input type="email" id="signup-email" name="signup-email" required />
-        <label htmlFor="signup-password">Password:</label>
-        <input type="password" id="signup-password" name="signup-password" required />
-        <button type="submit" className="signup-button">Signup</button>
-      </form>
-      <p className="switch-link">
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+    <div>
+       <form method = "POST"  onSubmit={handleSignup}>
+          <label>Firstname:</label>
+          <input
+            type="text"
+            value={firstname}
+            onChange={(e) => setFirstname(e.target.value)}
+            required
+          /><br/>
+          <label>Lastname:</label>
+          <input
+            type="text"
+            value={lastname}
+            onChange={(e) => setLastname(e.target.value)}
+            required
+          /><br/>
+          <label>Username:</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          /><br/>
+          <label>Email:</label>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          /><br/>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          /><br/>
+          
+        <button type="submit">Signup</button>
+        </form>
+        <p>
+          Already have account??<a href="/login">Login</a>
+        </p>
     </div>
   );
-};
+}
+
 export default Signup;
