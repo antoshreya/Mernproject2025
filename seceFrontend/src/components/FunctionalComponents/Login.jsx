@@ -18,7 +18,7 @@ const Login=({ setIsLoggedIn })=>{
             //console.log(req)
             alert(req.data.response);
             if(req.data.loginStatus){
-              setIsLoggedIn;
+              setIsLoggedIn(true);
               navigate("/home");
             }
             else{

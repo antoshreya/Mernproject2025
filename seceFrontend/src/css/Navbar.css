@@ -4,8 +4,8 @@ ol{
     list-style-type: none;
     margin:0;
     padding:10px;
-    background-color: rgb(219, 70, 16);
-    color:aliceblue;
+    background-color: rgb(139, 52, 198);
+    color:rgb(219, 197, 216);
 }
 .link{
     text-decoration: none;
@@ -13,8 +13,8 @@ ol{
 
 }
 .link:hover{
-    background-color: black;
-    color:aquamarine;
+    background-color: rgb(48, 5, 5);
+    color:rgb(239, 133, 250);
     border-radius: 10px;
     padding:5px;
 }

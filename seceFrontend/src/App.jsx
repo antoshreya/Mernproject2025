@@ -19,28 +19,30 @@ import ReactLifecycleMethods from './components/classComponents/ReactLifecycleMe
 import UseContext from './components/FunctionalComponents/Hooks/UseContext';
 import Memo from './components/FunctionalComponents/Memoization/Memo';
 import LazyLoadingWithSuspense from './components/FunctionalComponents/Memoization/LazyLoadingWithSuspense';
-import UseLocalStorage from "./components/FunctionalComponents/Hooks/UseLocalStorage";
-import HoC from "./components/FunctionalComponents/HoC/HoC";
+import UseLocalStorage from './components/FunctionalComponents/Hooks/CustomHooks/UseLocalStorage';
+import HoC from './components/FunctionalComponents/HoC/HoC';
+import DarkModeToggle from './components/FunctionalComponents/Hooks/CustomHooks/DarkModeToggle';
 
 
 function App() {
-  const[isLoggedIn,setIsLoggedIn]=useState(false)
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <BrowserRouter>
       {isLoggedIn && <Navbar setIsLoggedIn={setIsLoggedIn} />}
       <Routes>
-      <Route path="/" element={<Signup />} />
-      <Route path="/login" element={<Login /> } />
-        <Route path="/home" element={<Home />} />
+        <Route path="/login"element={<Login setIsLoggedIn={setIsLoggedIn} />}/>
+        <Route path="/" element={<Signup/>} />
+        <Route path="/home" element={<Home />}/>
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery page="Gallery" image="SECE Logo" />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/reactlm" element={<ReactLifecycleMethods />} />
+        <Route path="/reactlm" element={<ReactLifecycleMethods /> } />
         <Route path="/useApi" element={<UseEffectAPI />} />
+        <Route path="/signup" element={<Home />} />
+        <Route path="/login" element={ <Home /> } />
         <Route path="/useState" element={<UseState />} />
         <Route path="/useEffect" element={<UseEffect />} />
-        <Route path="/useimage" element={<UseEffectAPIimage /> } />
+        <Route path="/useimage" element={<UseEffectAPIimage />} />
         <Route path="/usereducer" element={<UseReducer />} />
         <Route path="/useref" element={<UseRef />} />
         <Route path="/usememo" element={<UseMemo />} />
@@ -49,9 +51,8 @@ function App() {
         <Route path="/memo" element={<Memo />} />
         <Route path="/lazy" element={<LazyLoadingWithSuspense />} />
         <Route path="/usecustom" element={<UseLocalStorage />} />
-       
-        <Route path="/hoc" element={<HoC />}></Route>
-        
+        <Route path="/usecustom2" element={<DarkModeToggle />} />
+        <Route path="/hoc" element={<HoC /> } />
       </Routes>
     </BrowserRouter>
   );
